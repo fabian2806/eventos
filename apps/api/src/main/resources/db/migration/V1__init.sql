@@ -1,0 +1,5 @@
+CREATE TABLE dummy_test(
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT now()
+);
