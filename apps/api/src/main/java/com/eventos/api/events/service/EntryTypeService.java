@@ -24,4 +24,6 @@ public class EntryTypeService {
                 .orElseThrow(() -> new RuntimeException("Event not found: " + id));
     }
 
+    public List<EntryType> listByEventId(Long eventId){ return entryTypeRepository.findByEventId(eventId); }
+
 }

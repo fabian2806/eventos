@@ -1,6 +1,8 @@
 package com.eventos.api.events.controller;
 
 import com.eventos.api.events.domain.EntryType;
+import com.eventos.api.events.dto.EntryTypeSummaryResponse;
+import com.eventos.api.events.mapper.EntryTypeMapper;
 import com.eventos.api.events.service.EntryTypeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,13 +22,14 @@ public class EntryTypeController {
     }
 
     @GetMapping
-    public List<EntryType> getEntryTypes() {
-        return entryTypeService.listEntryTypes();
+    public List<EntryTypeSummaryResponse> getEntryTypes() {
+        return EntryTypeMapper.toSummaryResponseList(entryTypeService.listEntryTypes());
     }
 
     @GetMapping("/{id}")
-    public EntryType getEntryTypeById(@PathVariable Long id) {
-        return entryTypeService.getEntryTypeById(id);
+    public EntryTypeSummaryResponse getEntryTypeById(@PathVariable Long id) {
+        return EntryTypeMapper.toSummaryResponse(entryTypeService.getEntryTypeById(id));
     }
+
 
 }

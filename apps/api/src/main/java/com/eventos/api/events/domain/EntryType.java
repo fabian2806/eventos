@@ -15,14 +15,14 @@ public class EntryType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private BigDecimal price;
-
     @Column(nullable = false, length = 30)
     private String name;
 
     @Column
     private String description;
+
+    @Column(nullable = false)
+    private BigDecimal price;
 
     @Column(nullable = false)
     private int stock;
