@@ -2,8 +2,6 @@ import Button from "@/shared/components/Button";
 import Logo from "@/shared/components/Logo";
 import { LogIn } from "lucide-react";
 
-
-
 const Navbar = () => {
     return (
         <header className="sticky top-0 z-50 h-32 bg-black/30 backdrop-blur-md">
