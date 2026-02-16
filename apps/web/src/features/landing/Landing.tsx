@@ -1,4 +1,4 @@
-import HeroSection from "@/shared/HeroSection";
+import HeroSection from "@/features/landing/components/HeroSection";
 import Navbar from "@/shared/Navbar";
 
 const Landing = () => {

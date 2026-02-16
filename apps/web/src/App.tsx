@@ -1,8 +1,8 @@
 import './App.css'
-import Landing2Views from './Landing2Views'
+import Landing2Views from '@/Landing2Views'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import AppShell from './layout/AppShell'
-import Landing from './layout/Landing'
+import AppShell from '@/layout/AppShell'
+import Landing from '@/features/landing/Landing'
 
 /*function App(){
   return <Landing2Views/>
