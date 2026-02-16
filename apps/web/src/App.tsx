@@ -1,11 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Landing2Views from './Landing2Views'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AppShell from './layout/AppShell'
+import Landing from './layout/Landing'
+
+/*function App(){
+  return <Landing2Views/>
+}*/
 
 function App(){
-  return <Landing2Views/>
+
+  return(
+    <BrowserRouter>
+      <Routes>
+        
+        <Route path='/' element={<AppShell/>}>
+          <Route index element={<Landing/>} />
+          <Route path='2views' element={<Landing2Views/>} />
+        </Route>
+
+      </Routes>
+  </BrowserRouter>
+  );
+  
 }
 
 export default App;
