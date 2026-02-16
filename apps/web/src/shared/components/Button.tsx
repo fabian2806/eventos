@@ -17,7 +17,7 @@ const base =
 
 const variantStyles = {
   primary:
-    "bg-white text-black hover:bg-white/90 active:scale-[0.98] shadow-[0_10px_30px_-15px_rgba(255,255,255,0.6)]",
+    "bg-white text-black font-display hover:bg-white/90 active:scale-[0.98] shadow-[0_10px_30px_-15px_rgba(255,255,255,0.6)]",
   outline:
     "border border-white/20 bg-white/5 text-white hover:bg-white/10 active:scale-[0.98]",
   ghost:
