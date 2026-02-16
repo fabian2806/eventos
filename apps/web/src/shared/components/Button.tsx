@@ -1,4 +1,4 @@
-import { cn } from "../utils/cn";
+import { cn } from "@/shared/utils/cn";
 
 type ButtonVariant = "primary" | "outline" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";

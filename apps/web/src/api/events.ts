@@ -1,7 +1,7 @@
 // src/api/events.ts
 
-import { http } from "./http";
-import type { EventSummaryResponse, EntryTypeSummaryResponse, EventDetailResponse } from "./types";
+import { http } from "@/api/http";
+import type { EventSummaryResponse, EntryTypeSummaryResponse, EventDetailResponse } from "@/api/types";
 
 export const eventsApi = {
     list: () => http<EventSummaryResponse[]>("/events"),

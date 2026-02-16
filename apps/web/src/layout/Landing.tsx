@@ -1,4 +1,4 @@
-import Navbar from "../shared/Navbar";
+import Navbar from "@/shared/Navbar";
 
 const Landing = () => {
     return(

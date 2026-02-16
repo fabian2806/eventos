@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import StarfieldBackground from "./StarfieldBackground";
+import StarfieldBackground from "@/layout/StarfieldBackground";
 
 const AppShell = () => {
     return (

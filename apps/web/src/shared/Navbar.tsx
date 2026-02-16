@@ -1,5 +1,5 @@
-import Button from "./components/Button";
-import Logo from "./components/Logo";
+import Button from "@/shared/components/Button";
+import Logo from "@/shared/components/Logo";
 import { LogIn } from "lucide-react";
 
 
