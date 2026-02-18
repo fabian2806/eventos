@@ -1,37 +1,8 @@
-import { eventsApi } from "@/api/events";
-import type { EventSummaryResponse } from "@/api/types";
-import { useEffect, useState } from "react";
+import useEvents from "@/features/events/hooks/useEvents";
 
 const Events = () => {
     
-    const [events, setEvents] = useState<EventSummaryResponse[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-
-    useEffect( () => {
-        let alive = true;
-
-        (async () => {
-            try {
-                setLoading(true);
-                setError(null);
-
-                const data = await eventsApi.list();
-                if (alive) setEvents(data);
-            }
-            catch(e){
-                if (alive) setError(e instanceof Error ? e.message : "Error desconocido");
-            }
-            finally{
-                if (alive) setLoading(false);
-            }
-        })();
-
-        return () => {
-            alive = false;
-        };
-
-    }, []);
+    const {events, loading, error} = useEvents();
 
     if (loading) return <div className="text-white">Cargando…</div>;
     if (error) return <div className="text-red-300">Error: {error}</div>;

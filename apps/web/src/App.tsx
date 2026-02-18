@@ -3,7 +3,7 @@ import Landing2Views from '@/Landing2Views'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import AppShell from '@/layout/AppShell'
 import Landing from '@/features/landing/Landing'
-import Events from '@/features/purchase-flow/pages/Events'
+import Events from '@/features/events/pages/Events'
 
 /*function App(){
   return <Landing2Views/>
