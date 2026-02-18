@@ -1,7 +1,11 @@
 import Button from "@/shared/components/Button";
 import { CircleArrowRight } from "lucide-react";
 
-const HeroSection = () => {
+type HeroSectionProps = {
+    onStart: () => void;
+}
+
+const HeroSection = ({onStart}: HeroSectionProps) => {
     return(
         <section className="min-h-[80vh] flex flex-col justify-center items-center">
             <div className="w-full max-w-4xl px-6 text-center space-y-16">
@@ -14,7 +18,7 @@ const HeroSection = () => {
                     </p>
                 </div>
                 
-                <Button size="lg" className="text-xl! font-extrabold!" rightIcon={<CircleArrowRight className="h-8 w-8" />}>EMPEZAR</Button>
+                <Button size="lg" className="text-xl! font-extrabold!" rightIcon={<CircleArrowRight className="h-8 w-8" />} onClick={onStart}>EMPEZAR</Button>
 
             </div>
         </section>

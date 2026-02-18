@@ -3,6 +3,7 @@ import Landing2Views from '@/Landing2Views'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import AppShell from '@/layout/AppShell'
 import Landing from '@/features/landing/Landing'
+import Events from '@/features/purchase-flow/pages/Events'
 
 /*function App(){
   return <Landing2Views/>
@@ -17,6 +18,10 @@ function App(){
         <Route path='/' element={<AppShell/>}>
           <Route index element={<Landing/>} />
           <Route path='2views' element={<Landing2Views/>} />
+
+          <Route path="events" element={<Events/>}></Route>
+
+
         </Route>
 
       </Routes>
