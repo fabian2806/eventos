@@ -19,9 +19,9 @@ function App(){
           <Route index element={<Landing/>} />
           <Route path='2views' element={<Landing2Views/>} />
 
-          <Route path="events" element={<Events/>}></Route>
-
-
+          <Route path="events">
+            <Route index element={<Events/>}/>
+          </Route>
         </Route>
 
       </Routes>
