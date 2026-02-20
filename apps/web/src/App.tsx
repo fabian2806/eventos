@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import AppShell from '@/layout/AppShell'
 import Landing from '@/features/landing/Landing'
 import Events from '@/features/events/pages/Events'
+import EventAccess from '@/features/events/pages/EventAccess'
+import { div } from 'framer-motion/client'
 
 /*function App(){
   return <Landing2Views/>
@@ -21,6 +23,12 @@ function App(){
 
           <Route path="events">
             <Route index element={<Events/>}/>
+            <Route path=":eventId">
+              <Route path='access' element={<EventAccess/>}/>
+              <Route path='buy' element={ <section></section> } />
+              <Route path='2views' element={<section></section>} />
+            </Route>
+
           </Route>
         </Route>
 

@@ -1,9 +1,12 @@
 import useEvents from "@/features/events/hooks/useEvents";
 import EventCard from "@/features/events/components/EventCard";
+import { useNavigate } from "react-router-dom";
 
 const Events = () => {
     
     const {events, loading, error} = useEvents();
+
+    const navigate = useNavigate();
 
     if (loading) return <div className="text-white">Cargando…</div>;
     if (error) return <div className="text-red-300">Error: {error}</div>;
@@ -23,13 +26,7 @@ const Events = () => {
             {/*280: 70rem*/}
             <div className="my-8 w-full max-w-280 space-y-16">
                 {events.map((ev) => (
-                    <EventCard key={ev.id} event={ev}/>
-                ))}
-                {events.map((ev) => (
-                    <EventCard key={ev.id} event={ev}/>
-                ))}
-                {events.map((ev) => (
-                    <EventCard key={ev.id} event={ev}/>
+                    <EventCard key={ev.id} event={ev} onClick={() => navigate(`${ev.id}/access`) }/>
                 ))}
             </div>
         </section>

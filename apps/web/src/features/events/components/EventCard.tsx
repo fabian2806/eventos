@@ -5,9 +5,10 @@ import { Calendar, MapPin } from "lucide-react";
 
 type EventCardProps = {
     event: EventSummaryResponse;
+    onClick: () => void;
 }
 
-const EventCard = ({event}: EventCardProps) => {
+const EventCard = ({event, onClick}: EventCardProps) => {
     {/*70: 280px*/}
     {/*60: 240px */}
     return (
@@ -42,7 +43,8 @@ const EventCard = ({event}: EventCardProps) => {
 
                 {/*Bloque inferiror: CTA*/}
                 <div>
-                    <Button size="lg" className="text-xl! font-display! font-extrabold!" variant="glass">VER ACCESOS</Button>
+                    <Button size="lg" className="text-xl! font-display! font-extrabold!" 
+                        variant="glass" onClick={onClick}>VER ACCESOS</Button>
                 </div>
             </div>
             

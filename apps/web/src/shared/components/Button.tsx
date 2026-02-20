@@ -1,7 +1,7 @@
 import { cn } from "@/shared/utils/cn";
 
 type ButtonVariant = "primary" | "outline" | "ghost" | "glass";
-type ButtonSize = "sm" | "md" | "lg";
+type ButtonSize = "sm" | "md" | "lg" | "xl";
 
 type ButtonProps = {
     variant?: ButtonVariant;
@@ -19,7 +19,7 @@ const variantStyles = {
   primary:
     "bg-white text-black font-display hover:bg-white/90 active:scale-[0.98] shadow-[0_10px_30px_-15px_rgba(255,255,255,0.6)]",
   outline:
-    "border border-white/20 bg-white/5 text-white hover:bg-white/10 active:scale-[0.98]",
+    "font-display border border-white/20 bg-white/5 text-white hover:bg-white/10 active:scale-[0.98]",
   ghost:
     "bg-transparent text-white/70 hover:bg-white/10 active:scale-[0.98]",
   glass:
@@ -30,6 +30,7 @@ const sizeStyles = {
   sm: "h-9 px-3 text-sm",
   md: "h-10 px-4 text-sm",
   lg: "h-12 px-6 text-base",
+  xl: "h-16 px-8 text-lg"
 };
 //Considerar agregar sizeStyle 'nav'
 
