@@ -1,6 +1,6 @@
 import { cn } from "@/shared/utils/cn";
 
-type ButtonVariant = "primary" | "outline" | "ghost";
+type ButtonVariant = "primary" | "outline" | "ghost" | "glass";
 type ButtonSize = "sm" | "md" | "lg";
 
 type ButtonProps = {
@@ -22,6 +22,8 @@ const variantStyles = {
     "border border-white/20 bg-white/5 text-white hover:bg-white/10 active:scale-[0.98]",
   ghost:
     "bg-transparent text-white/70 hover:bg-white/10 active:scale-[0.98]",
+  glass:
+    "border border-white/20 bg-white/10 text-white backdrop-blur-md hover:bg-white/15 hover:border-white/30 active:scale-[0.98] shadow-[0_10px_30px_-20px_rgba(255,255,255,0.25)]"
 };
 
 const sizeStyles = {

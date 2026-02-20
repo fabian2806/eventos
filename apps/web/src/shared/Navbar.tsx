@@ -1,5 +1,5 @@
 import Button from "@/shared/components/Button";
-import Logo from "@/shared/components/Logo";
+import Logo from "@/shared/components/logo/Logo";
 import { LogIn } from "lucide-react";
 
 const Navbar = () => {
