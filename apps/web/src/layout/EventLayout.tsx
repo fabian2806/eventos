@@ -14,7 +14,7 @@ const EventLayout = () => {
 
 
     console.log("eventId:", eventId, " event:", event);
-    return <Outlet context={{eventId, event}}/>
+    return <Outlet context={{numEventId, event}}/>
 }
 
 export default EventLayout;

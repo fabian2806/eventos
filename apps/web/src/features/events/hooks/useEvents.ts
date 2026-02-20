@@ -2,6 +2,7 @@ import { eventsApi } from "@/api/events";
 import type { EventSummaryResponse } from "@/api/types";
 import { useEffect, useState } from "react"
 
+{/*DRY*/}
 const useEvents = () => {
     const [events, setEvents] = useState<EventSummaryResponse[]>([]);
     const [loading, setLoading] = useState(true);

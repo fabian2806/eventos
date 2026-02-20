@@ -7,6 +7,7 @@ import Events from '@/features/events/pages/Events'
 import EventAccess from '@/features/events/pages/EventAccess'
 import { div } from 'framer-motion/client'
 import EventLayout from '@/layout/EventLayout'
+import EventTickets from '@/features/events/pages/EventTickets'
 
 /*function App(){
   return <Landing2Views/>
@@ -26,7 +27,7 @@ function App(){
             <Route index element={<Events/>}/>
             <Route path=":eventId" element={<EventLayout/>}>
               <Route path='access' element={<EventAccess/>}/>
-              <Route path='tickets' element={ <section></section> } />
+              <Route path='tickets' element={ <EventTickets/>} />
               <Route path='2views' element={<section></section>} />
             </Route>
 

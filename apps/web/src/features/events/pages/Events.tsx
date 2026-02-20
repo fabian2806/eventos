@@ -7,13 +7,14 @@ const Events = () => {
     const {events, loading, error} = useEvents();
 
     const navigate = useNavigate();
-
+    
+    {/*DRY*/}
     if (loading) return <div className="text-white">Cargando…</div>;
     if (error) return <div className="text-red-300">Error: {error}</div>;
     
     return (
         <section className="flex flex-col justify-center items-center">
-            <div className="flex flex-col items-center mt-12">
+            <div className="flex flex-col items-center mt-20">
                 <h1 className="text-balance text-white font-display font-black 
                     text-6xl md:text-8xl tracking-tight leading-[0.95]">
                     EVENTOS
