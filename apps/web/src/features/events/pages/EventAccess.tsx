@@ -1,7 +1,12 @@
 import Button from "@/shared/components/Button";
 import { QrCode, Ticket } from "lucide-react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const EventAccess = () => {
+
+    const navigate = useNavigate();
+    const {eventId} = useParams();
+
     return(
         <section className="min-h-screen flex flex-col justify-center items-center text-white">
             <div className="w-full max-w-4xl text-center space-y-12">
@@ -13,8 +18,10 @@ const EventAccess = () => {
                     </div>
                 </div>
                 <div className="flex flex-col items-center gap-4">
-                    <Button variant="primary" size="xl" className="w-full max-w-md font-extrabold!" leftIcon={<QrCode/>}>TENGO UN CÓDIGO</Button>
-                    <Button variant="outline" size="xl" className="w-full max-w-md font-extrabold!" leftIcon={<Ticket/>}>NO TENGO UN CÓDIGO</Button>
+                    <Button variant="primary" size="xl" className="w-full max-w-md font-extrabold!" 
+                        leftIcon={<QrCode/>} onClick={() => {}}>TENGO UN CÓDIGO</Button>
+                    <Button variant="outline" size="xl" className="w-full max-w-md font-extrabold!" 
+                        leftIcon={<Ticket/>} onClick={() => {navigate(`/events/${eventId}/tickets`)}}>NO TENGO UN CÓDIGO</Button>
                 </div>
             </div>
         </section>
