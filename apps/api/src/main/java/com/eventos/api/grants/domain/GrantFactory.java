@@ -10,31 +10,31 @@ public class GrantFactory {
     public Grant createFromPurchase(String code, EntryType entryType){
         return new Grant(
                 code,
-                GrantStatus.EMITIDO,
-                GrantSource.COMPRA,
+                GrantStatus.EMITTED,
+                GrantSource.PURCHASE,
                 entryType);
     }
 
     public Grant createFromCourtesy(String code, EntryType entryType){
         return new Grant(
                 code,
-                GrantStatus.EMITIDO,
-                GrantSource.CORTESIA,
+                GrantStatus.EMITTED,
+                GrantSource.COURTESY,
                 entryType);
     }
 
     public Grant createFromPromoter(String code, EntryType entryType){
         return new Grant(
                 code,
-                GrantStatus.EMITIDO,
-                GrantSource.PROMOTOR,
+                GrantStatus.EMITTED,
+                GrantSource.PROMOTER,
                 entryType);
     }
 
     public Grant createFromAdmin(String code, EntryType entryType){
         return new Grant(
                 code,
-                GrantStatus.EMITIDO,
+                GrantStatus.EMITTED,
                 GrantSource.ADMIN,
                 entryType);
     }

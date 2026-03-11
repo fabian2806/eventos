@@ -1,8 +1,8 @@
 package com.eventos.api.grants.domain;
 
 public enum GrantSource {
-    COMPRA,
-    CORTESIA,
-    PROMOTOR,
+    PURCHASE,
+    COURTESY,
+    PROMOTER,
     ADMIN
 }
