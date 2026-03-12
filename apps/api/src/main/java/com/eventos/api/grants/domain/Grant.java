@@ -38,4 +38,9 @@ public class Grant {
         this.source = source;
         this.entryType = entryType;
     }
+
+    public boolean isEmitted(){
+        return status.equals(GrantStatus.EMITTED);
+    }
+
 }

@@ -2,6 +2,8 @@ package com.eventos.api.grants.mapper;
 
 import com.eventos.api.grants.domain.Grant;
 import com.eventos.api.grants.dto.EmitGrantSummaryResponse;
+import com.eventos.api.grants.dto.GrantValidationResponse;
+import com.eventos.api.grants.service.GrantService;
 
 public final class GrantMapper {
 
@@ -16,6 +18,14 @@ public final class GrantMapper {
                 grant.getSource(),
                 grant.getStatus()
         );
+    }
+
+    public static GrantValidationResponse toValidationResponse(final GrantService.GrantRedeemEvaluation grantRedeemEvaluation){
+        if  (grantRedeemEvaluation == null) return null;
+
+        return new GrantValidationResponse(
+                grantRedeemEvaluation.isValid(),
+                grantRedeemEvaluation.getStatus());
     }
 
 }
