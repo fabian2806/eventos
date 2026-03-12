@@ -1,6 +1,8 @@
 package com.eventos.api.grants.controller;
 
 import com.eventos.api.grants.domain.Grant;
+import com.eventos.api.grants.dto.EmitGrantSummaryResponse;
+import com.eventos.api.grants.mapper.GrantMapper;
 import com.eventos.api.grants.service.GrantService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +20,9 @@ public class GrantController {
     }
 
     @PostMapping("/courtesy/{entryTypeId}")
-    public String emitCourtesyGrant(@PathVariable Long entryTypeId){
-        Grant grant = grantService.emitCourtesyGrant(entryTypeId);
-        return grant.getCode();
+    public EmitGrantSummaryResponse emitCourtesyGrant(@PathVariable Long entryTypeId){
+
+        return GrantMapper.toSummaryResponse(grantService.emitCourtesyGrant(entryTypeId));
     }
 
 }

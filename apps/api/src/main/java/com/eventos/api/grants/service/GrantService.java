@@ -41,6 +41,7 @@ public class GrantService {
         return null;
     }
 
+    /** Emite un grant de cortesía **/
     public Grant emitCourtesyGrant(Long entryTypeId){
         /// Validamos que exista el entryType
         EntryType entryType = entryTypeRepository.findById(entryTypeId)
@@ -54,5 +55,7 @@ public class GrantService {
 
         return grantRepository.save(grant);
     }
+
+
 
 }
