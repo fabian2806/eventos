@@ -20,7 +20,7 @@ const EventRedeem = () => {
                                 space-y-8
                                 rounded-2xl
                                 border border-white/15
-                                bg-white/[0.03]
+                                bg-white/3
                                 backdrop-blur-md
                                 p-6 md:p-8
                                 shadow-[0_18px_50px_-30px_rgba(0,0,0,0.9)]">

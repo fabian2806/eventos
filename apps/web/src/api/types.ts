@@ -50,7 +50,7 @@ export type EmmitGrantSummaryResponse = {
 
 export type GrantValidationRequest = {
     code: string;
-    idEvent: string;
+    idEvent: number;
 }
 
 export type GrantValidationResponse = {
