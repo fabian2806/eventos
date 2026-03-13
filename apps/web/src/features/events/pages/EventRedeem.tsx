@@ -1,11 +1,24 @@
+import { grantsApi } from "@/api/grants";
+import type { EventDetailResponse } from "@/api/types";
 import Button from "@/shared/components/Button";
 import Input from "@/shared/components/Input";
 import { KeyRound, ScanLine } from "lucide-react";
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
+import useGrantValidation from "@/features/events/hooks/useGrantValidation";
+
+{/*DRY*/}
+type Ctx = {numEventId: number; event: EventDetailResponse};
 
 const EventRedeem = () => {
 
+    const {numEventId} = useOutletContext<Ctx>();
+    const {validateGrant, response, loading, error} = useGrantValidation();
     const [code, setCode] = useState(" ");
+
+    const handleValidate = async () => {
+        await validateGrant(code, numEventId);       
+    }
 
     return(
         <section className="min-h-screen flex flex-col justify-center items-center text-white">
@@ -36,9 +49,10 @@ const EventRedeem = () => {
                         className="uppercase tracking-[0.14em]"
                         />
                     <Button variant="outline" size="lg" className="w-full font-extrabold!" 
-                        leftIcon={<ScanLine />} onClick={() => {}}>VALIDAR CÓDIGO </Button>
+                        leftIcon={<ScanLine />} onClick={handleValidate}>VALIDAR CÓDIGO </Button>
                 </div>
             </div>
+
         </section>
     );
 }
