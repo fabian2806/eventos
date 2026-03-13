@@ -25,7 +25,7 @@ public final class GrantMapper {
 
         return new GrantValidationResponse(
                 grantRedeemEvaluation.isValid(),
-                grantRedeemEvaluation.getStatus());
+                grantRedeemEvaluation.getReason());
     }
 
 }

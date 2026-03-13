@@ -40,6 +40,12 @@ export type GrantStatus =
   | "REDEEMED"
   | "EXPIRED";
 
+export type GrantValidationReason =
+  | "VALID"
+  | "NOT_FOUND"
+  | "USED"
+  | "EXPIRED"
+  | "WRONG_EVENT";
 
 export type EmmitGrantSummaryResponse = {
     id: number;
@@ -55,5 +61,5 @@ export type GrantValidationRequest = {
 
 export type GrantValidationResponse = {
     valid: boolean;
-    status: GrantStatus;
+    reason: GrantValidationReason;
 }

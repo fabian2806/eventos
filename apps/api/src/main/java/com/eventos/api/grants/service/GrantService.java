@@ -2,10 +2,7 @@ package com.eventos.api.grants.service;
 
 import com.eventos.api.events.domain.EntryType;
 import com.eventos.api.events.repository.EntryTypeRepository;
-import com.eventos.api.grants.domain.Grant;
-import com.eventos.api.grants.domain.GrantCodeGenerator;
-import com.eventos.api.grants.domain.GrantFactory;
-import com.eventos.api.grants.domain.GrantStatus;
+import com.eventos.api.grants.domain.*;
 import com.eventos.api.grants.dto.GrantValidationResponse;
 import com.eventos.api.grants.repository.GrantRepository;
 import lombok.Getter;
@@ -32,12 +29,12 @@ public class GrantService {
     public static class GrantRedeemEvaluation{
         private Grant grant;
         private boolean valid;
-        private GrantStatus status;
+        private GrantValidationReason reason;
 
-        public GrantRedeemEvaluation(Grant grant, boolean valid, GrantStatus status){
+        public GrantRedeemEvaluation(Grant grant, boolean valid, GrantValidationReason reason){
             this.grant = grant;
             this.valid = valid;
-            this.status = status;
+            this.reason = reason;
         }
 
     }
@@ -90,14 +87,18 @@ public class GrantService {
 
         //if (!grantRepository.existsByCode(code)) return
         if (grant == null) return
-                new GrantRedeemEvaluation(null, false, null);
+                new GrantRedeemEvaluation(null, false, GrantValidationReason.NOT_FOUND);
 
-        // Validamos que el grant es redimible (status EMMITED y coincide con el idEvent recibido)
-        if (!grant.isEmitted() || !Objects.equals(grant.getEntryType().getEvent().getId(), idEvent)) return
-                new GrantRedeemEvaluation(grant, false, grant.getStatus());
+        // Validamos que el grant es redimible (status EMMITED)...
+        if (!grant.isEmitted()) return
+                new GrantRedeemEvaluation(null, false, GrantValidationReason.EXPIRED);
+
+        //  y coincide con el idEvent recibido
+        if (!Objects.equals(grant.getEntryType().getEvent().getId(), idEvent)) return
+                new GrantRedeemEvaluation(grant, false, GrantValidationReason.WRONG_EVENT);
 
         // TODO: Considerar fecha
-        return new GrantRedeemEvaluation(grant, true, grant.getStatus());
+        return new GrantRedeemEvaluation(grant, true, GrantValidationReason.VALID);
     }
 
     /** Valida que un grant exista y que su status sea EMITTED. Retorna true/false **/
