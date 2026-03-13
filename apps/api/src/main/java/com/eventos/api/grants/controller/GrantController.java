@@ -25,7 +25,9 @@ public class GrantController {
 
     @PostMapping("/validate")
     public GrantValidationResponse validateGrant(@RequestBody GrantValidationRequest grantValidationRequest){
-        return GrantMapper.toValidationResponse(grantService.validateGrantCode(grantValidationRequest.code()));
+        return GrantMapper.toValidationResponse(grantService.validateGrantCode(
+                grantValidationRequest.code(),
+                grantValidationRequest.idEvent()));
     }
 
 }

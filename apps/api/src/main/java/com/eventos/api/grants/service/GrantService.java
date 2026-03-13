@@ -11,6 +11,8 @@ import com.eventos.api.grants.repository.GrantRepository;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 public class GrantService {
 
@@ -79,17 +81,19 @@ public class GrantService {
      * a partir de este método**/
     /*Nota: Podría hacer un factory. Por cuestiones de simplicidad y casos de uso, no lo haré*/
 
-    private GrantRedeemEvaluation evaluateGrantForRedeem(String code){
+    private GrantRedeemEvaluation evaluateGrantForRedeem(String code, Long idEvent){
         // Validamos que exista el grant
 
         System.out.println("El code es:" + code);
 
-        if (!grantRepository.existsByCode(code)) return
-                new GrantRedeemEvaluation(null, false, null);
         Grant grant = grantRepository.findByCode(code);
 
-        // Validamos que el grant es redimible
-        if (!grant.isEmitted()) return
+        //if (!grantRepository.existsByCode(code)) return
+        if (grant == null) return
+                new GrantRedeemEvaluation(null, false, null);
+
+        // Validamos que el grant es redimible (status EMMITED y coincide con el idEvent recibido)
+        if (!grant.isEmitted() || !Objects.equals(grant.getEntryType().getEvent().getId(), idEvent)) return
                 new GrantRedeemEvaluation(grant, false, grant.getStatus());
 
         // TODO: Considerar fecha
@@ -97,15 +101,15 @@ public class GrantService {
     }
 
     /** Valida que un grant exista y que su status sea EMITTED. Retorna true/false **/
-    public boolean isValidGrantForRedeem(String code){
-        GrantRedeemEvaluation grantRedeemEvaluation = evaluateGrantForRedeem(code);
+    public boolean isValidGrantForRedeem(String code, Long idEvent){
+        GrantRedeemEvaluation grantRedeemEvaluation = evaluateGrantForRedeem(code, idEvent);
 
         return grantRedeemEvaluation.isValid();
     }
 
     /** Transforma un resultado de validación para ser utilizado por el controller**/
-    public GrantRedeemEvaluation validateGrantCode(String code){
-        GrantRedeemEvaluation grantRedeemEvaluation = evaluateGrantForRedeem(code);
+    public GrantRedeemEvaluation validateGrantCode(String code, Long idEvent){
+        GrantRedeemEvaluation grantRedeemEvaluation = evaluateGrantForRedeem(code, idEvent);
 
         return grantRedeemEvaluation;
     }
