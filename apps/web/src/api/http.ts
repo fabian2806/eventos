@@ -6,7 +6,15 @@ export async function http<T>(path: string, init?: RequestInit): Promise<T> {
 
     console.log(`Iniciando llamada a ${BASE_URL}${path}`);
 
-    const res = await fetch(`${BASE_URL}${path}`, init);
+    //const res = await fetch(`${BASE_URL}${path}`, init);
+
+    const res = await fetch(`${BASE_URL}${path}`, {
+        ...init,
+        headers: {
+            "Content-Type": "application/json",
+            ...init?.headers
+        }
+    })
 
     console.log("El response es:", res);
 

@@ -19,7 +19,7 @@ const EventAccess = () => {
                 </div>
                 <div className="flex flex-col items-center gap-4">
                     <Button variant="primary" size="xl" className="w-full max-w-md font-extrabold!" 
-                        leftIcon={<QrCode/>} onClick={() => {}}>TENGO UN CÓDIGO</Button>
+                        leftIcon={<QrCode/>} onClick={() => {navigate(`/events/${eventId}/redeem`)}}>TENGO UN CÓDIGO</Button>
                     <Button variant="outline" size="xl" className="w-full max-w-md font-extrabold!" 
                         leftIcon={<Ticket/>} onClick={() => {navigate(`/events/${eventId}/tickets`)}}>NO TENGO UN CÓDIGO</Button>
                 </div>
